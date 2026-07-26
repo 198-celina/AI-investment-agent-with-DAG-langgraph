@@ -12,7 +12,7 @@ env:
   K8S_NAMESPACE: investment-agent
 
 jobs:
-  # Job 1: 单元测试（纯逻辑，无需 API Key 和向量库）
+  # Job 1: 单元测试
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -27,23 +27,34 @@ jobs:
         python-version: '3.11'
         cache: 'pip'
 
-    - name: Install dependencies
+    - name: Install system dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        sudo apt-get update
+        sudo apt-get install -y libopenblas-dev
 
-    - name: Run unit tests (DAG + Intent + RAG)
-      env:
-        SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+        pip install -r requirements.txt 2>&1 | tail -20
+
+    - name: Run DAG tests (pure logic, no API needed)
       run: |
         echo "=== Running DAG tests ==="
         pytest tests/test_dag.py -v --tb=short
-        echo ""
+
+    - name: Run Intent tests (needs API key)
+      env:
+        SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+      run: |
         echo "=== Running Intent tests ==="
-        pytest tests/test_intent.py -v --tb=short || echo "Intent tests failed (may need API key)"
-        echo ""
+        pytest tests/test_intent.py -v --tb=short || true
+
+    - name: Run RAG tests (needs vectorstore)
+      env:
+        SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+      run: |
         echo "=== Running RAG tests ==="
-        pytest tests/test_rag.py -v --tb=short || echo "RAG tests skipped (no vectorstore in CI)"
+        pytest tests/test_rag.py -v --tb=short || true
 
   # Job 2: 构建 Docker 镜像 + 漏洞扫描
   build:
