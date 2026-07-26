@@ -6,9 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  packages: write
+
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/investment-agent
+  IMAGE_NAME: ${{ github.repository }}
   K8S_NAMESPACE: investment-agent
 
 jobs:
