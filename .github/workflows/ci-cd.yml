@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  REGISTRY: registry.cn-shanghai.aliyuncs.com
+  REGISTRY: crpi-ezuhd3zamor8pcyc.cn-shanghai.personal.cr.aliyuncs.com
   NAMESPACE: investment-agent
   IMAGE_NAME: investment-agent
   K8S_NAMESPACE: investment-agent
