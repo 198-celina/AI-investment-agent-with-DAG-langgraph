@@ -1,0 +1,50 @@
+[
+  {
+    "query": "我想投资浦东新区的商铺，帮我看看租金回报",
+    "expected_intent": {
+      "rent_analysis": true,
+      "competitor_analysis": false,
+      "loan_policy": false
+    }
+  },
+  {
+    "query": "对比一下陆家嘴和张江的商铺投资价值",
+    "expected_intent": {
+      "rent_analysis": true,
+      "competitor_analysis": true,
+      "loan_policy": false
+    }
+  },
+  {
+    "query": "买商铺可以贷款吗？首付多少？",
+    "expected_intent": {
+      "rent_analysis": false,
+      "competitor_analysis": false,
+      "loan_policy": true
+    }
+  },
+  {
+    "query": "我想投资500万在上海浦东新区买商铺，帮我分析租金回报、周边竞品和贷款方案",
+    "expected_intent": {
+      "rent_analysis": true,
+      "competitor_analysis": true,
+      "loan_policy": true
+    }
+  },
+  {
+    "query": "帮我分析一下前滩商圈的竞品情况",
+    "expected_intent": {
+      "rent_analysis": false,
+      "competitor_analysis": true,
+      "loan_policy": false
+    }
+  },
+  {
+    "query": "招商银行商铺贷款利率是多少",
+    "expected_intent": {
+      "rent_analysis": false,
+      "competitor_analysis": false,
+      "loan_policy": true
+    }
+  }
+]

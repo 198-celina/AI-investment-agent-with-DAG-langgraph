@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金融多Agent智能投顾系统</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .input-section textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .input-section textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .thinking-section {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .thinking-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 3px solid #667eea;
+            background: #f8f9ff;
+            border-radius: 4px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .thinking-item.success {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .thinking-item.error {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .thinking-item .label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .thinking-item .detail {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .thinking-item .time {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .flow-node {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f8f9ff;
+            transition: all 0.3s;
+        }
+
+        .flow-node.active {
+            border-color: #667eea;
+            background: #e0e7ff;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .flow-node.completed {
+            border-color: #10b981;
+            background: #d1fae5;
+        }
+
+        .flow-node.error {
+            border-color: #ef4444;
+            background: #fee2e2;
+        }
+
+        .flow-node .node-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .flow-node .node-status {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: #667eea;
+        }
+
+        .report-section {
+            grid-column: 1 / -1;
+        }
+
+        .report-content {
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .report-content h1 {
+            font-size: 2em;
+            margin: 20px 0 15px 0;
+            color: #333;
+        }
+
+        .report-content h2 {
+            font-size: 1.6em;
+            margin: 18px 0 12px 0;
+            color: #444;
+        }
+
+        .report-content h3 {
+            font-size: 1.3em;
+            margin: 15px 0 10px 0;
+            color: #555;
+        }
+
+        .report-content p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .report-content ul, .report-content ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        .report-content li {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .report-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .report-content th, .report-content td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .report-content th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        .report-content tr:nth-child(even) {
+            background: #f8f9ff;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>金融多Agent智能投顾系统</h1>
+            <p>基于 LangGraph + DAG 的智能投资分析平台</p>
+        </div>
+
+        <div class="main-content">
+            <!-- 左侧：输入和思考过程 -->
+            <div class="card input-section">
+                <h2>💬 投资咨询</h2>
+                <textarea id="queryInput" placeholder="请输入您的投资问题，例如：&#10;我想投资500万在上海浦东新区买商铺，帮我分析租金回报、周边竞品和贷款方案"></textarea>
+                <button class="btn" id="submitBtn" onclick="submitQuery()">开始分析</button>
+            </div>
+
+            <!-- 右侧：流转链路 -->
+            <div class="card">
+                <h2>🔄 流转链路</h2>
+                <div class="flow-diagram" id="flowDiagram">
+                    <div class="flow-node" id="node-intent">
+                        <div class="node-title">意图识别</div>
+                        <div class="node-status">等待中...</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node" id="node-dag">
+                        <div class="node-title">DAG规划</div>
+                        <div class="node-status">等待中...</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node" id="node-agents">
+                        <div class="node-title">Agent执行</div>
+                        <div class="node-status">等待中...</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node" id="node-reflection">
+                        <div class="node-title">反思评估</div>
+                        <div class="node-status">等待中...</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node" id="node-report">
+                        <div class="node-title">报告生成</div>
+                        <div class="node-status">等待中...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 思考过程 -->
+        <div class="card" style="margin-bottom: 20px;">
+            <h2>💭 思考过程</h2>
+            <div class="thinking-section" id="thinkingSection">
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <p>等待分析开始...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 报告展示 -->
+        <div class="card report-section">
+            <h2>📊 投资顾问报告</h2>
+            <div class="report-content" id="reportContent">
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 17v-2a4 4 0 014-4h4m-4-4l-4 4m0 0l4 4m-4-4h12"/>
+                    </svg>
+                    <p>报告将在分析完成后显示在这里</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局状态
+        let isProcessing = false;
+
+        // 提交查询
+        async function submitQuery() {
+            if (isProcessing) return;
+
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) {
+                alert('请输入投资问题');
+                return;
+            }
+
+            isProcessing = true;
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').textContent = '分析中...';
+
+            // 重置UI
+            resetUI();
+
+            try {
+                await processWithSSE(query);
+            } catch (error) {
+                addThinkingItem('error', '系统错误', error.message);
+            } finally {
+                isProcessing = false;
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('submitBtn').textContent = '开始分析';
+            }
+        }
+
+        // 重置UI
+        function resetUI() {
+            document.getElementById('thinkingSection').innerHTML = '';
+            document.getElementById('reportContent').innerHTML = '<div class="empty-state"><p>报告生成中...</p></div>';
+            
+            // 重置所有节点状态
+            ['intent', 'dag', 'agents', 'reflection', 'report'].forEach(node => {
+                const element = document.getElementById(`node-${node}`);
+                element.className = 'flow-node';
+                element.querySelector('.node-status').textContent = '等待中...';
+            });
+        }
+
+        // SSE处理
+        async function processWithSSE(query) {
+            const response = await fetch('http://localhost:8000/api/invest/stream', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query: query })
+            });
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                buffer += decoder.decode(value);
+                const lines = buffer.split('\n');
+                buffer = lines.pop();
+
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const data = JSON.parse(line.slice(6));
+                        handleEvent(data);
+                    }
+                }
+            }
+        }
+
+        // 处理事件
+        function handleEvent(event) {
+            const { type, data } = event;
+
+            switch (type) {
+                case 'intent_start':
+                    updateNode('intent', 'active', '识别中...');
+                    addThinkingItem('processing', '意图识别', `正在分析: ${data.query}`);
+                    break;
+
+                case 'intent_complete':
+                    updateNode('intent', 'completed', `完成 (${data.elapsed}s)`);
+                    const intents = [];
+                    if (data.result.rent_analysis) intents.push('租金分析');
+                    if (data.result.competitor_analysis) intents.push('竞品分析');
+                    if (data.result.loan_policy) intents.push('贷款政策');
+                    addThinkingItem('success', '意图识别完成', `识别到: ${intents.join(', ')}`, data.elapsed);
+                    break;
+
+                case 'dag_start':
+                    updateNode('dag', 'active', '规划中...');
+                    addThinkingItem('processing', 'DAG规划', '正在构建执行计划...');
+                    break;
+
+                case 'dag_complete':
+                    updateNode('dag', 'completed', `完成 (${data.elapsed}s)`);
+                    addThinkingItem('success', 'DAG规划完成', `执行计划: ${data.plan.total_nodes}个节点, ${data.plan.total_layers}层`, data.elapsed);
+                    break;
+
+                case 'agents_start':
+                    updateNode('agents', 'active', '执行中...');
+                    addThinkingItem('processing', 'Agent执行', `开始执行 ${data.count} 个Agent...`);
+                    break;
+
+                case 'agent_start':
+                    addThinkingItem('processing', `${data.agent} 启动`, '正在分析...');
+                    break;
+
+                case 'agent_complete':
+                    addThinkingItem('success', `${data.agent} 完成`, '分析完成');
+                    break;
+
+                case 'agents_complete':
+                    updateNode('agents', 'completed', `完成 (${data.elapsed}s)`);
+                    addThinkingItem('success', 'Agent执行完成', `共执行 ${data.count} 个Agent`, data.elapsed);
+                    break;
+
+                case 'reflection_start':
+                    updateNode('reflection', 'active', '评估中...');
+                    addThinkingItem('processing', '反思评估', '正在评估报告质量...');
+                    break;
+
+                case 'reflection_complete':
+                    updateNode('reflection', 'completed', `完成 (${data.elapsed}s)`);
+                    addThinkingItem('success', '反思评估完成', `评分: ${data.score}/10`, data.elapsed);
+                    break;
+
+                case 'report_start':
+                    updateNode('report', 'active', '生成中...');
+                    addThinkingItem('processing', '报告生成', '正在生成投资顾问报告...');
+                    break;
+
+                case 'report_complete':
+                    updateNode('report', 'completed', `完成 (${data.elapsed}s)`);
+                    addThinkingItem('success', '报告生成完成', `报告长度: ${data.length} 字符`, data.elapsed);
+                    break;
+
+                case 'complete':
+                    displayReport(data.report);
+                    addThinkingItem('success', '分析完成', '投资顾问报告已生成');
+                    break;
+
+                case 'error':
+                    addThinkingItem('error', '错误', data.message);
+                    break;
+            }
+        }
+
+        // 更新节点状态
+        function updateNode(nodeId, status, text) {
+            const element = document.getElementById(`node-${nodeId}`);
+            element.className = `flow-node ${status}`;
+            element.querySelector('.node-status').textContent = text;
+        }
+
+        // 添加思考项
+        function addThinkingItem(type, label, detail, time = null) {
+            const section = document.getElementById('thinkingSection');
+            const item = document.createElement('div');
+            item.className = `thinking-item ${type}`;
+            
+            let timeStr = time ? `<div class="time">耗时: ${time}s</div>` : '';
+            
+            item.innerHTML = `
+                <div class="label">${label}</div>
+                <div class="detail">${detail}</div>
+                ${timeStr}
+            `;
+            
+            section.appendChild(item);
+            section.scrollTop = section.scrollHeight;
+        }
+
+        // 显示报告
+        function displayReport(report) {
+            const content = document.getElementById('reportContent');
+            content.innerHTML = marked.parse(report);
+        }
+
+        // 示例查询
+        const examples = [
+            '我想投资500万在上海浦东新区买商铺，帮我分析租金回报、周边竞品和贷款方案',
+            '分析一下陆家嘴的商铺投资价值',
+            '招商银行商铺贷款利率是多少？',
+            '对比一下前滩和金桥的商铺'
+        ];
+
+        // 随机填充示例
+        document.getElementById('queryInput').value = examples[Math.floor(Math.random() * examples.length)];
+    </script>
+</body>
+</html>

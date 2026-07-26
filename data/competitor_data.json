@@ -1,0 +1,122 @@
+[
+  {
+    "id": "comp_001",
+    "area": "上海浦东新区",
+    "business_district": "陆家嘴",
+    "project_name": "正大广场",
+    "property_type": "购物中心商铺",
+    "avg_price": "120000元/㎡",
+    "occupancy_rate": "92%",
+    "advantages": "核心地段，品牌效应强，人流量日均10万+，地铁直达",
+    "disadvantages": "入场门槛高，租金成本大，竞争激烈",
+    "description": "正大广场是陆家嘴标杆商业项目，入驻品牌超200个，涵盖国际一线品牌、餐饮、娱乐等业态，适合高端零售餐饮投资。"
+  },
+  {
+    "id": "comp_002",
+    "area": "上海浦东新区",
+    "business_district": "陆家嘴",
+    "project_name": "国金中心商场",
+    "property_type": "高端购物中心",
+    "avg_price": "180000元/㎡",
+    "occupancy_rate": "95%",
+    "advantages": "超高端定位，奢侈品牌聚集，客单价高",
+    "disadvantages": "投资门槛极高，适合大型机构",
+    "description": "国金中心商场是上海顶级购物中心，汇聚LV、Gucci、Prada等国际奢侈品牌，是高端投资首选。"
+  },
+  {
+    "id": "comp_003",
+    "area": "上海浦东新区",
+    "business_district": "张江",
+    "project_name": "张江长泰广场",
+    "property_type": "社区型购物中心",
+    "avg_price": "65000元/㎡",
+    "occupancy_rate": "85%",
+    "advantages": "周边科技企业密集，白领客群稳定，租金适中",
+    "disadvantages": "周末人流量下降明显，业态受限",
+    "description": "张江长泰广场服务科技园白领，以餐饮、健身、教育培训为主，工作日人流量大，投资回报率稳定。"
+  },
+  {
+    "id": "comp_004",
+    "area": "上海浦东新区",
+    "business_district": "前滩",
+    "project_name": "前滩太古里",
+    "property_type": "开放式商业街区",
+    "avg_price": "150000元/㎡",
+    "occupancy_rate": "90%",
+    "advantages": "新兴高端商圈，设计感强，吸引年轻客群",
+    "disadvantages": "商圈尚在培育期，短期回报不确定",
+    "description": "前滩太古里是上海新兴高端商业项目，融合购物、餐饮、艺术、休闲，定位年轻高收入群体，发展潜力巨大。"
+  },
+  {
+    "id": "comp_005",
+    "area": "上海浦东新区",
+    "business_district": "金桥",
+    "project_name": "金桥国际商业广场",
+    "property_type": "区域型购物中心",
+    "avg_price": "55000元/㎡",
+    "occupancy_rate": "80%",
+    "advantages": "周边居民区密集，家庭客群稳定，停车方便",
+    "disadvantages": "品牌档次一般，租金增长缓慢",
+    "description": "金桥国际商业广场服务金桥社区，以家庭消费为主，包含超市、餐饮、儿童教育等业态，适合稳健型投资。"
+  },
+  {
+    "id": "comp_006",
+    "area": "上海浦东新区",
+    "business_district": "世纪大道",
+    "project_name": "九六广场",
+    "property_type": "综合商业体",
+    "avg_price": "95000元/㎡",
+    "occupancy_rate": "88%",
+    "advantages": "地铁枢纽，人流量大，业态丰富",
+    "disadvantages": "周边竞品多，差异化经营压力大",
+    "description": "九六广场位于世纪大道商圈，多条地铁交汇，集购物、餐饮、影院于一体，人流量大，适合多元业态投资。"
+  },
+  {
+    "id": "comp_007",
+    "area": "上海浦东新区",
+    "business_district": "世博",
+    "project_name": "世博源",
+    "property_type": "大型购物中心",
+    "avg_price": "75000元/㎡",
+    "occupancy_rate": "78%",
+    "advantages": "世博板块政策支持，空间大，适合体验式消费",
+    "disadvantages": "入住率仍在提升中，短期空置风险",
+    "description": "世博源是世博园区核心商业项目，面积大，业态丰富，适合大型餐饮、娱乐、展览等体验式消费投资。"
+  },
+  {
+    "id": "comp_008",
+    "area": "上海浦东新区",
+    "business_district": "花木",
+    "project_name": "嘉里城",
+    "property_type": "中高端购物中心",
+    "avg_price": "85000元/㎡",
+    "occupancy_rate": "86%",
+    "advantages": "嘉里集团运营，品质有保障，周边高端社区密集",
+    "disadvantages": "租金偏高，小品牌入驻压力大",
+    "description": "浦东嘉里城是花木商圈标杆项目，定位中高端，品牌组合优质，适合有实力的品牌商投资。"
+  },
+  {
+    "id": "comp_009",
+    "area": "上海黄浦区",
+    "business_district": "南京东路",
+    "project_name": "新世界大丸百货",
+    "property_type": "百货商场",
+    "avg_price": "200000元/㎡",
+    "occupancy_rate": "93%",
+    "advantages": "南京东路核心位置，游客流量巨大",
+    "disadvantages": "投资成本极高，传统百货业态面临转型",
+    "description": "新世界大丸百货位于南京东路步行街，中日合资运营，游客流量大，适合品牌展示和高端零售。"
+  },
+  {
+    "id": "comp_010",
+    "area": "上海浦东新区",
+    "business_district": "三林",
+    "project_name": "三林印象城",
+    "property_type": "社区型购物中心",
+    "avg_price": "45000元/㎡",
+    "occupancy_rate": "75%",
+    "advantages": "投资门槛低，周边居民需求稳定",
+    "disadvantages": "品牌档次低，租金增长有限",
+    "description": "三林印象城服务三林社区，以日常消费为主，包含超市、餐饮、生活服务，适合小额稳健投资。"
+  }
+]

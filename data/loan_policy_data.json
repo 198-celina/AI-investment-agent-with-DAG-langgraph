@@ -1,0 +1,102 @@
+[
+  {
+    "id": "loan_001",
+    "bank_name": "工商银行",
+    "loan_type": "商业用房贷款",
+    "interest_rate": "4.2%-4.8%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "10年",
+    "approval_conditions": "需提供营业执照、近6个月流水、征信良好",
+    "description": "工行商业用房贷款，首付50%起，利率4.2%起，最长10年，适合有稳定经营收入的投资者。审批流程规范，放款速度快。"
+  },
+  {
+    "id": "loan_002",
+    "bank_name": "建设银行",
+    "loan_type": "商业用房贷款",
+    "interest_rate": "4.3%-4.9%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "10年",
+    "approval_conditions": "需提供营业执照、房产证明、征信良好、经营证明",
+    "description": "建行商业用房贷款，首付50%起，利率4.3%起，最长10年，适合有房产抵押的投资者，审批相对宽松。"
+  },
+  {
+    "id": "loan_003",
+    "bank_name": "中国银行",
+    "loan_type": "商铺按揭贷款",
+    "interest_rate": "4.5%-5.2%",
+    "down_payment_ratio": "60%",
+    "max_loan_term": "10年",
+    "approval_conditions": "首付60%起，需提供经营计划、征信报告、收入证明",
+    "description": "中行商铺按揭贷款，首付要求较高（60%），但利率相对优惠，适合资金实力较强的投资者。"
+  },
+  {
+    "id": "loan_004",
+    "bank_name": "农业银行",
+    "loan_type": "个人商业用房贷款",
+    "interest_rate": "4.4%-5.0%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "8年",
+    "approval_conditions": "个人征信良好，有稳定收入来源，提供经营证明",
+    "description": "农行个人商业用房贷款，首付50%起，最长8年，适合个人投资者，审批流程简单，放款较快。"
+  },
+  {
+    "id": "loan_005",
+    "bank_name": "招商银行",
+    "loan_type": "商业房产抵押贷款",
+    "interest_rate": "4.0%-4.6%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "15年",
+    "approval_conditions": "需提供抵押物、经营证明、征信报告、财务报表",
+    "description": "招行商业房产抵押贷款，利率最低4.0%起，最长15年，适合有抵押物的投资者，额度高，期限长。"
+  },
+  {
+    "id": "loan_006",
+    "bank_name": "交通银行",
+    "loan_type": "商铺贷款",
+    "interest_rate": "4.5%-5.3%",
+    "down_payment_ratio": "55%",
+    "max_loan_term": "10年",
+    "approval_conditions": "首付55%起，需提供营业执照、经营场所租赁合同、征信报告",
+    "description": "交行商铺贷款，首付55%起，利率4.5%起，最长10年，适合已有租赁意向的投资者。"
+  },
+  {
+    "id": "loan_007",
+    "bank_name": "浦发银行",
+    "loan_type": "小微企业商铺贷款",
+    "interest_rate": "4.1%-4.7%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "10年",
+    "approval_conditions": "小微企业主，提供营业执照、经营流水、征信良好",
+    "description": "浦发银行小微企业商铺贷款，利率优惠，首付50%起，适合小微企业主投资商铺，审批灵活。"
+  },
+  {
+    "id": "loan_008",
+    "bank_name": "上海银行",
+    "loan_type": "商业地产贷款",
+    "interest_rate": "4.3%-5.0%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "12年",
+    "approval_conditions": "上海本地企业优先，提供经营计划、财务报表、征信报告",
+    "description": "上海银行商业地产贷款，最长12年，对上海本地企业有利率优惠，适合本地投资者。"
+  },
+  {
+    "id": "loan_009",
+    "bank_name": "民生银行",
+    "loan_type": "商户贷",
+    "interest_rate": "4.6%-5.5%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "8年",
+    "approval_conditions": "个体工商户或小微企业主，经营满1年，征信良好",
+    "description": "民生银行商户贷，专为个体工商户设计，首付50%起，审批快，适合个体经营者投资商铺。"
+  },
+  {
+    "id": "loan_010",
+    "bank_name": "中信银行",
+    "loan_type": "商业用房按揭贷款",
+    "interest_rate": "4.2%-4.9%",
+    "down_payment_ratio": "50%",
+    "max_loan_term": "10年",
+    "approval_conditions": "提供购房合同、营业执照、征信报告、收入证明",
+    "description": "中信银行商业用房按揭贷款，利率4.2%起，首付50%起，最长10年，适合购买新建商业用房的投资者。"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "rent_001",
+    "area": "上海浦东新区",
+    "location": "陆家嘴",
+    "property_type": "商铺",
+    "size_sqm": 80,
+    "monthly_rent_range": "30000-50000元",
+    "avg_rent_per_sqm": "450元/㎡/月",
+    "annual_return_rate": "5.2%",
+    "vacancy_rate": "8%",
+    "description": "陆家嘴核心商圈商铺，人流量大，适合餐饮零售，年回报率约5.2%，空置率较低。周边有正大广场、国金中心等标杆商业项目，交通便利，地铁2号线直达。"
+  },
+  {
+    "id": "rent_002",
+    "area": "上海浦东新区",
+    "location": "张江",
+    "property_type": "商铺",
+    "size_sqm": 120,
+    "monthly_rent_range": "18000-28000元",
+    "avg_rent_per_sqm": "200元/㎡/月",
+    "annual_return_rate": "4.1%",
+    "vacancy_rate": "12%",
+    "description": "张江科技园周边商铺，客群以白领为主，适合轻餐饮便利店，回报率稳定。周边科技企业密集，工作日人流量大，周末相对冷清。"
+  },
+  {
+    "id": "rent_003",
+    "area": "上海浦东新区",
+    "location": "世纪大道",
+    "property_type": "商铺",
+    "size_sqm": 60,
+    "monthly_rent_range": "25000-40000元",
+    "avg_rent_per_sqm": "500元/㎡/月",
+    "annual_return_rate": "5.8%",
+    "vacancy_rate": "5%",
+    "description": "世纪大道沿线商铺，多条地铁交汇，人流量极大，适合品牌连锁餐饮和零售，年回报率高达5.8%，空置率仅5%。"
+  },
+  {
+    "id": "rent_004",
+    "area": "上海浦东新区",
+    "location": "金桥",
+    "property_type": "商铺",
+    "size_sqm": 150,
+    "monthly_rent_range": "15000-22000元",
+    "avg_rent_per_sqm": "130元/㎡/月",
+    "annual_return_rate": "3.5%",
+    "vacancy_rate": "15%",
+    "description": "金桥商圈商铺，面积较大，适合大型餐饮或教育培训，租金相对较低，回报率一般，但长期稳定。"
+  },
+  {
+    "id": "rent_005",
+    "area": "上海浦东新区",
+    "location": "前滩",
+    "property_type": "商铺",
+    "size_sqm": 100,
+    "monthly_rent_range": "35000-55000元",
+    "avg_rent_per_sqm": "420元/㎡/月",
+    "annual_return_rate": "4.8%",
+    "vacancy_rate": "10%",
+    "description": "前滩新兴商圈商铺，新建商业综合体，定位高端，适合精品零售和高端餐饮，发展潜力大，回报率逐年上升。"
+  },
+  {
+    "id": "rent_006",
+    "area": "上海黄浦区",
+    "location": "南京东路",
+    "property_type": "商铺",
+    "size_sqm": 50,
+    "monthly_rent_range": "50000-80000元",
+    "avg_rent_per_sqm": "1200元/㎡/月",
+    "annual_return_rate": "6.5%",
+    "vacancy_rate": "3%",
+    "description": "南京东路步行街商铺，上海最核心商圈，日均人流量超百万，适合国际品牌旗舰店，回报率极高，一铺难求。"
+  },
+  {
+    "id": "rent_007",
+    "area": "上海徐汇区",
+    "location": "徐家汇",
+    "property_type": "商铺",
+    "size_sqm": 90,
+    "monthly_rent_range": "28000-45000元",
+    "avg_rent_per_sqm": "380元/㎡/月",
+    "annual_return_rate": "5.0%",
+    "vacancy_rate": "7%",
+    "description": "徐家汇商圈商铺，多条地铁交汇，周边居民区密集，适合综合零售和餐饮，回报率稳定在5%左右。"
+  },
+  {
+    "id": "rent_008",
+    "area": "上海浦东新区",
+    "location": "三林",
+    "property_type": "商铺",
+    "size_sqm": 200,
+    "monthly_rent_range": "12000-18000元",
+    "avg_rent_per_sqm": "75元/㎡/月",
+    "annual_return_rate": "2.8%",
+    "vacancy_rate": "20%",
+    "description": "三林地区社区商铺，面积大租金低，适合社区超市、药店等民生业态，回报率较低但风险也低。"
+  },
+  {
+    "id": "rent_009",
+    "area": "上海浦东新区",
+    "location": "世博",
+    "property_type": "写字楼",
+    "size_sqm": 300,
+    "monthly_rent_range": "45000-70000元",
+    "avg_rent_per_sqm": "180元/㎡/月",
+    "annual_return_rate": "4.5%",
+    "vacancy_rate": "12%",
+    "description": "世博园区写字楼，世博后滩板块，周边企业总部密集，适合中型企业办公，回报率中等，政策支持力度大。"
+  },
+  {
+    "id": "rent_010",
+    "area": "上海浦东新区",
+    "location": "花木",
+    "property_type": "商铺",
+    "size_sqm": 110,
+    "monthly_rent_range": "20000-32000元",
+    "avg_rent_per_sqm": "250元/㎡/月",
+    "annual_return_rate": "4.3%",
+    "vacancy_rate": "9%",
+    "description": "花木商圈商铺，紧邻上海科技馆和浦东图书馆，文化氛围浓厚，适合教育培训、书店文创等业态。"
+  }
+]

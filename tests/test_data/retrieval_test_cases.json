@@ -1,0 +1,32 @@
+[
+  {
+    "query": "陆家嘴商铺租金多少",
+    "expected_ids": ["rent_001"],
+    "expected_keywords": ["陆家嘴", "租金", "回报率"]
+  },
+  {
+    "query": "工商银行商业贷款政策",
+    "expected_ids": ["loan_001"],
+    "expected_keywords": ["工商银行", "首付", "利率"]
+  },
+  {
+    "query": "正大广场竞品分析",
+    "expected_ids": ["comp_001"],
+    "expected_keywords": ["正大广场", "陆家嘴", "入驻"]
+  },
+  {
+    "query": "张江科技园商铺投资",
+    "expected_ids": ["rent_002", "comp_003"],
+    "expected_keywords": ["张江", "科技园", "白领"]
+  },
+  {
+    "query": "世纪大道商铺回报率",
+    "expected_ids": ["rent_003"],
+    "expected_keywords": ["世纪大道", "回报率", "5.8%"]
+  },
+  {
+    "query": "招商银行贷款期限",
+    "expected_ids": ["loan_005"],
+    "expected_keywords": ["招商银行", "15年", "抵押"]
+  }
+]
