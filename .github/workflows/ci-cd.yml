@@ -115,18 +115,16 @@ jobs:
         version: 'v1.28.0'
 
     - name: Configure K8s context
-      env:
-        KUBECONFIG_DATA: ${{ secrets.K8S_KUBECONFIG }}
-        K8S_CONTEXT_NAME: ${{ secrets.K8S_CONTEXT }}
+      uses: azure/k8s-set-context@v4
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.K8S_KUBECONFIG }}
+        context: ${{ secrets.K8S_CONTEXT }}
+
+    - name: Verify cluster connection
       run: |
-        mkdir -p $HOME/.kube
-        # Use printf to avoid shell interpretation of backticks/special chars
-        printf '%s\n' "$KUBECONFIG_DATA" > $HOME/.kube/config
-        # Remove any backticks from server URLs (copy-paste artifact)
-        sed -i 's/`//g' $HOME/.kube/config
-        chmod 600 $HOME/.kube/config
-        kubectl config use-context "${K8S_CONTEXT_NAME}"
         kubectl cluster-info
+        kubectl get nodes
 
     - name: Deploy to K8s (Rolling Update)
       run: |
