@@ -115,14 +115,11 @@ jobs:
         version: 'v1.28.0'
 
     - name: Configure K8s context
-      uses: azure/k8s-set-context@v4
-      with:
-        method: kubeconfig
-        kubeconfig: ${{ secrets.K8S_KUBECONFIG }}
-        context: ${{ secrets.K8S_CONTEXT }}
-
-    - name: Verify cluster connection
       run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.K8S_KUBECONFIG_B64 }}" | base64 -d > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
+        kubectl config use-context "${{ secrets.K8S_CONTEXT }}"
         kubectl cluster-info
         kubectl get nodes
 
