@@ -147,8 +147,14 @@ jobs:
         sed "s|\${IMAGE_TAG}|${IMAGE_TAG}|g" k8s/deployment.yaml | kubectl apply -f -
         sed "s|\${SILICONFLOW_API_KEY}|${{ secrets.SILICONFLOW_API_KEY }}|g" k8s/service.yaml | kubectl apply -f -
 
-        # Wait for rollout
-        kubectl rollout status deployment/investment-agent -n ${{ env.K8S_NAMESPACE }} --timeout=300s
+        # Debug: show pod status
+        echo "=== Pod Status ==="
+        kubectl get pods -n ${{ env.K8S_NAMESPACE }} -o wide
+        echo "=== Pod Events ==="
+        kubectl get events -n ${{ env.K8S_NAMESPACE }} --sort-by='.lastTimestamp' | tail -20
+
+        # Wait for rollout (10 minutes timeout)
+        kubectl rollout status deployment/investment-agent -n ${{ env.K8S_NAMESPACE }} --timeout=600s
 
     - name: Run smoke tests
       id: smoke
